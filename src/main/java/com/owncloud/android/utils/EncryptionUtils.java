@@ -553,8 +553,11 @@ public class EncryptionUtils {
 
         String pemKey = decodeBase64BytesToString(decrypted);
 
-        return pemKey.replaceAll("\n", "").replace("-----BEGIN PRIVATE KEY-----", "")
-                .replace("-----END PRIVATE KEY-----", "");
+        return pemKey.replaceAll("\n", "")
+                .replace("-----BEGIN PRIVATE KEY-----", "")
+                .replace("-----BEGIN RSA PRIVATE KEY-----", "")
+                .replace("-----END PRIVATE KEY-----", "")
+                .replace("-----END RSA PRIVATE KEY-----", "");
     }
 
     public static String privateKeyToPEM(PrivateKey privateKey) throws IOException {
